@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar';
 import ProductCard from '@/components/ProductCard';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
+import styles from './catalogo.module.css';
 
 export default async function CatalogPage(props: {
   searchParams: Promise<{ categoria?: string; color?: string; talla?: string; material?: string }>;
@@ -12,8 +13,6 @@ export default async function CatalogPage(props: {
   // Construir filtros de Prisma basados en los searchParams
   const where: any = {};
   if (categoria) {
-    // SQLite in Prisma does not support mode: 'insensitive'
-    // To do case insensitive search in SQLite with Prisma you usually do it manually, or just exact match
     where.category = { equals: categoria };
   }
   
@@ -27,7 +26,6 @@ export default async function CatalogPage(props: {
     orderBy: { createdAt: 'desc' }
   });
 
-  // Client-side like filtering for JSON fields (colors, sizes) since SQLite doesn't support JSON querying well
   let filteredProducts = products;
   
   if (color) {
@@ -50,10 +48,10 @@ export default async function CatalogPage(props: {
       <Navbar />
       <main style={{ paddingTop: '80px', background: 'var(--background)', minHeight: 'calc(100vh - 400px)' }}>
         
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '2rem', padding: '2rem 0' }}>
+        <div className={`container ${styles.layout}`}>
           
           {/* Sidebar */}
-          <aside style={{ background: 'var(--surface)', padding: '2rem', borderRadius: '12px', border: '1px solid var(--border)', height: 'fit-content' }}>
+          <aside className={styles.sidebar}>
             <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: '1.5rem' }}>Filtros</h3>
             
             <div style={{ marginBottom: '2rem' }}>
@@ -70,7 +68,6 @@ export default async function CatalogPage(props: {
               <h4 style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text-muted)' }}>TALLAS</h4>
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                 {['S', 'M', 'L', 'XL'].map(t => {
-                  // Necesitamos serializar los params a string para no enviar [object Object] o un map
                   const currentParams = new URLSearchParams(Object.entries(resolvedParams).reduce((acc, [k, v]) => {
                     if (v) acc[k] = v;
                     return acc;
@@ -108,7 +105,7 @@ export default async function CatalogPage(props: {
             </h1>
 
             {filteredProducts.length > 0 ? (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '2rem' }}>
+              <div className={styles.productGrid}>
                 {filteredProducts.map(product => {
                   const colors = JSON.parse(product.colors || '[]');
                   return (

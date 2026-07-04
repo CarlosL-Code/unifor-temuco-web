@@ -14,6 +14,8 @@ interface ProductCardProps {
   colors: string[];
 }
 
+const MotionLink = motion(Link);
+
 export default function ProductCard({ id, name, category, imageSrc, colors }: ProductCardProps) {
   const ref = useRef<HTMLAnchorElement>(null);
   
@@ -49,7 +51,7 @@ export default function ProductCard({ id, name, category, imageSrc, colors }: Pr
     <motion.div
       style={{ perspective: 1000 }}
     >
-      <motion.a
+      <MotionLink
         ref={ref}
         href={`/producto/${id}`}
         className={styles.card}
@@ -85,7 +87,7 @@ export default function ProductCard({ id, name, category, imageSrc, colors }: Pr
             ))}
           </div>
         </div>
-      </motion.a>
+      </MotionLink>
     </motion.div>
   );
 }
