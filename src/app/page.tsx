@@ -122,15 +122,15 @@ export default async function Home() {
                 <Link href="/catalogo" style={{
                   background: 'var(--foreground)',
                   color: 'var(--background)',
-                  padding: '1.2rem 3.5rem',
+                  padding: '0.9rem 2.5rem',
                   borderRadius: '50px',
-                  fontWeight: 800,
-                  fontSize: '1.1rem',
+                  fontWeight: 700,
+                  fontSize: '1rem',
                   textDecoration: 'none',
                   transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                   boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
                 }}>
-                  Explorar Catálogo Completo
+                  Ver Todo
                 </Link>
               </div>
             </AnimatedSection>
