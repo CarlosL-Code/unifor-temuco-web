@@ -55,6 +55,9 @@ export default function Footer() {
         
         <div className={styles.bottom}>
           <p>&copy; {new Date().getFullYear()} UNIFOR TEMUCO. Todos los derechos reservados.</p>
+          <p style={{ marginTop: '0.5rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+            Desarrollado por <a href="https://carloslozanodev.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--unifor-blue)', textDecoration: 'none', fontWeight: 600 }}>Carlos Lozano</a>
+          </p>
         </div>
       </div>
     </footer>
