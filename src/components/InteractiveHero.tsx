@@ -37,11 +37,11 @@ export default function InteractiveHero() {
         </motion.p>
         
         <motion.div className={styles.actions} variants={itemVariants}>
-          <Link href="#catalogo" className={styles.primaryBtn}>
-            Explorar Catálogo
+          <Link href="/catalogo" className={styles.primaryBtn}>
+            Ver Catálogo
           </Link>
-          <Link href="#contacto" className={styles.secondaryBtn}>
-            Cotizar al por Mayor
+          <Link href="https://wa.me/56983748231" target="_blank" className={styles.secondaryBtn}>
+            Cotizar
           </Link>
         </motion.div>
       </motion.div>
