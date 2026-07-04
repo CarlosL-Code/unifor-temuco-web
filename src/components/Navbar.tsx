@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './Navbar.module.css';
-
+import ThemeToggle from './ThemeToggle';
 export default function Navbar() {
   return (
     <nav className={styles.navbar}>
@@ -18,6 +18,7 @@ export default function Navbar() {
         </ul>
         
         <div className={styles.navActions}>
+          <ThemeToggle />
           <a href="https://wa.me/56983748231" target="_blank" rel="noopener noreferrer" className={styles.contactBtn}>
             Cotizar por WhatsApp
           </a>

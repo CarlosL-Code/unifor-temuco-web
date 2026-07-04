@@ -15,6 +15,25 @@
 
   --primary: var(--foreground);
   --primary-foreground: var(--background);
+  
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --footer-bg: #2d3436;
+  --footer-text: #ffffff;
+  --btn-text: #ffffff;
+}
+
+[data-theme='dark'] {
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-hover: #334155;
+  --foreground: #f8fafc;
+  --text-muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  
+  --navbar-bg: rgba(30, 41, 59, 0.95);
+  --footer-bg: #090e1a;
+  --footer-text: #94a3b8;
+  --btn-text: #0f172a;
 }
 
 html {

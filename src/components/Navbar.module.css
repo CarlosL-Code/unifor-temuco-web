@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--navbar-bg);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
@@ -58,11 +58,12 @@
 .navActions {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .contactBtn {
   background: var(--foreground);
-  color: #fff;
+  color: var(--btn-text);
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   font-weight: 600;

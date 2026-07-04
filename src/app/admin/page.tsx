@@ -16,7 +16,10 @@ export default async function AdminDashboard() {
       <main className={styles.main}>
         <section className={styles.formSection}>
           <h2>Agregar Producto</h2>
-          <form action={addProduct} className={styles.form}>
+          <form action={async (formData) => {
+            'use server';
+            await addProduct(formData);
+          }} className={styles.form}>
             <div className={styles.inputGroup}>
               <label>Nombre del Producto</label>
               <input type="text" name="name" required placeholder="Ej: Polerón Canguro Básico" />
@@ -34,8 +37,8 @@ export default async function AdminDashboard() {
             </div>
             
             <div className={styles.inputGroup}>
-              <label>URL de la Imagen (Por ahora, pega un link de Unsplash u otro)</label>
-              <input type="url" name="imageSrc" required placeholder="https://..." />
+              <label>Imagen del Producto</label>
+              <input type="file" name="image" accept="image/*" required />
             </div>
 
             <div className={styles.inputGroup}>

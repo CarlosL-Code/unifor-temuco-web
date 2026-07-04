@@ -1,6 +1,6 @@
 .footer {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: 5rem 0 2rem 0;
 }
 
